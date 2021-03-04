@@ -33,6 +33,11 @@ public class Season implements Serializable {
 
 	public Season() {
 	}
+	
+	public Season(String seasonname, Date seasonstartdate) {
+		this.seasonname = seasonname;
+		this.seasonstartdate = seasonstartdate;
+	}
 
 	public int getId() {
 		return this.id;

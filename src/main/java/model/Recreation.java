@@ -37,6 +37,10 @@ public class Recreation implements Serializable {
 
 	public Recreation() {
 	}
+	
+	public Recreation(String recname) {
+		this.recname = recname;
+	}
 
 	public int getId() {
 		return this.id;
