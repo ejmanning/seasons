@@ -29,7 +29,7 @@ public class RecreationHelper {
 	public void deleteItem(Recreation toDelete) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Recreation> typedQuery = em.createQuery("SELECT r FROM Recreation r WHERE r.recName = :selectedRecName", Recreation.class);
+		TypedQuery<Recreation> typedQuery = em.createQuery("SELECT r FROM Recreation r WHERE r.RECNAME = :selectedRecName", Recreation.class);
 		
 		//substitute the parameter with actual data from the toDelete item
 		typedQuery.setParameter("selectedRecName", toDelete.getRecname());
@@ -50,7 +50,7 @@ public class RecreationHelper {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Recreation> typedQuery = em.createQuery("SELECT r FROM Recreation r WHERE r.recName = :selectedRecName", Recreation.class);
+		TypedQuery<Recreation> typedQuery = em.createQuery("SELECT r FROM Recreation r WHERE r.RECNAME = :selectedRecName", Recreation.class);
 		typedQuery.setParameter("selectedRecName", recName);
 		
 		List<Recreation> foundRecreations = typedQuery.getResultList();
@@ -58,7 +58,7 @@ public class RecreationHelper {
 		return foundRecreations;
 	}
 	
-	public Recreation searchForItemById(int idToEdit) {
+	public Recreation searchForRecreationById(int idToEdit) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
@@ -67,7 +67,7 @@ public class RecreationHelper {
 		return found;
 	}
 
-	public void updateItem(Recreation toEdit) {
+	public void updateRecreation(Recreation toEdit) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();

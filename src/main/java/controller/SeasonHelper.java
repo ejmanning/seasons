@@ -11,7 +11,7 @@ import model.Season;
 public class SeasonHelper {
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("seasons");
 
-	public void insertNewListDetails(Season s) {
+	public void insertSeason(Season s) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(s);
@@ -24,6 +24,12 @@ public class SeasonHelper {
 		EntityManager em = emfactory.createEntityManager();
 		List<Season> allDetails = em.createQuery("SELECT s FROM Season s").getResultList();
 		return allDetails;
+	}
+	
+	public List <Season> showAllSeasons() {
+		EntityManager em = emfactory.createEntityManager();
+		List <Season> allSeasons = em.createQuery("SELECT s FROM Season s").getResultList();
+		return allSeasons;
 	}
 
 	

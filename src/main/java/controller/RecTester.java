@@ -7,7 +7,7 @@ import model.Recreation;
 public class RecTester {
 	public static void main(String[] args) {
 		Recreation rec = new Recreation("Ice Skating");
-		RecHelper rh = new RecHelper();
+		RecreationHelper rh = new RecreationHelper();
 		rh.insertRecreation(rec);
 		List<Recreation> allRecreations = rh.showAllRecreations();
 		for(Recreation a: allRecreations) {
