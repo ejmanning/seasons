@@ -6,10 +6,44 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import model.Season;
+
+public class SeasonHelper {
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("seasons");
+
+	public void insertNewListDetails(Season s) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(s);
 		em.getTransaction().commit();
 		em.close();
 	}
+
+
+	public List<Season> getSeasons() {
+		EntityManager em = emfactory.createEntityManager();
+		List<Season> allDetails = em.createQuery("SELECT s FROM Season s").getResultList();
+		return allDetails;
+	}
+
+	
+	public Season searchForSeasonsById(Integer tempId) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		Season found = em.find(Season.class, tempId);
+		em.close();
+		return found;
+	}
+	
+	public void updateSeason(Season toEdit) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		
+		em.merge(toEdit);
+		em.getTransaction().commit();
+		em.close();
+	}
+
+}
 
