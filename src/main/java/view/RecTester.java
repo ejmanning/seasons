@@ -1,7 +1,8 @@
-package controller;
+package view;
 
 import java.util.List;
 
+import controller.RecreationHelper;
 import model.Recreation;
 
 public class RecTester {

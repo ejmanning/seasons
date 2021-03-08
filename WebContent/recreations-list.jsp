@@ -10,10 +10,10 @@
 <body>
 	<form method="post" action="recreationNavigationServlet">
 	<table>
-		<c:forEach items="${requestScope.allRecreations}" var="currentrecreation">
+		<c:forEach items="${requestScope.allRecreations}" var="currentitem">
 		<tr>
-			<td><input type="radio" name="id" value="${currentrecreation.id}"></td>
-			<td>${currentrecreation.name}</td>
+			<td><input type="radio" name="id" value="${currentitem.id}"></td>
+			<td>${currentitem.recname}</td>
 		</tr> 
 		</c:forEach>
 	</table>
