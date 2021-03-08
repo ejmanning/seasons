@@ -6,14 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Edit Season</title>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<form action = "editSeasonServlet" method= "post">
 	<input type = "hidden" name ="id" value="${seasonToEdit.id}">
-	Season: <input type = "text" name ="listName" value="${seasonToEdit.seasonname}"><br />
+	Season: <input type = "button" name ="seasonName" value="${seasonToEdit.seasonname}"><br />
 	
-	Start date: <input type ="text" name ="month" placeholder="mm" size="4" value="${month}"> <input type ="text" name ="day" placeholder="dd" size="4" value="${date}">, <input type ="text" name="year" placeholder="yyyy" size="4" value="${year}">
-	
+	Start Date: <input type="button" name = startDate value="${seasonToEdit.seasonstartdate}"><br />	
 	Available Recreations:<br />
 	
 	<select name="allRecreationsToAdd"multiple size="6">
@@ -21,6 +21,7 @@
 		<option value ="${currentrecreation.id}">${currentrecreation.recname}</option>
 	</c:forEach>
 	</select>
+	
 <br />
 <input type = "submit" value="Edit Season and Add Recreations">
 </form>

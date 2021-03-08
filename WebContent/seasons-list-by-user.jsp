@@ -6,16 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Edit Season</title>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<form method="post" action="seasonNavigationServlet">
 	<table>
 	<c:forEach items="${requestScope.allSeasons}" var="currentseason">
 	<tr>
-		<td><input type="radio" name="id" value="${currentlist.id}"></td>
+		<td><input type="radio" name="id" value="${currentseason.id}"></td>
 		<td><h2>${currentseason.seasonname}</h2></td></tr>
 		<tr><td colspan="3">Start Date: ${currentseason.seasonstartdate}</td></tr>
-		<c:forEach var="recreations" items="${currentseason.recreations}">
+		<tr><td colspan="3">Recreations: <c:forEach var="recreations" items="${currentseason.recreations}">
 			<tr><td></td><td colspan="3">
 				${recreations.recname}
 				</td>
@@ -26,7 +27,6 @@
 	<input type="submit" value="edit" name="doThisToSeason">
 	</form>
 	
-	<a href="addRecreationForSeasonServlet">Add recreations for seasons</a>
 	<a href="index.html">Insert a new recreation</a>
 </body>
 </html>

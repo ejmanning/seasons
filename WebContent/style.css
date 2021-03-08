@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+body {
+	background-color: lightblue;
+	text-align: center;
+}
+
+a {
+	border: thin solid black;
+	margin: 1%;
+	background-color: black;
+	color: white;
+}

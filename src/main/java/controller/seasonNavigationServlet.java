@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Recreation;
 import model.Season;
 
 /**
@@ -37,29 +38,26 @@ public class seasonNavigationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		RecreationHelper rh = new RecreationHelper();
+		request.setAttribute("allRecreations", rh.showAllRecreations());
+		
 		SeasonHelper dao = new SeasonHelper();
 		String act = request.getParameter("doThisToSeason");
 		
-		if (act.equals("edit")) {
+		String path = "/viewAllSeasonsServlet";
+		
+		if(act.equals("edit")) {
 			try {
 				Integer tempId = Integer.parseInt(request.getParameter("id"));
 				Season seasonToEdit = dao.searchForSeasonById(tempId);
 				request.setAttribute("seasonToEdit", seasonToEdit);
-				
-				request.setAttribute("seasonname", seasonToEdit.getSeasonname());
-				
-				RecreationHelper daoForRecreations = new RecreationHelper();
-				request.setAttribute("allRecreations", daoForRecreations.showAllRecreations());
-				
-				if(daoForRecreations.showAllRecreations().isEmpty()) {
-					request.setAttribute("allRecreations", " ");
-				}
-				
-				getServletContext().getRequestDispatcher("/edit-season.jsp").forward(request, response);
-			} catch(NumberFormatException e) {
-				getServletContext().getRequestDispatcher("/viewAllSeasonsServlet").forward(request, response);
+				path = "/edit-season.jsp";
+			} catch (NumberFormatException e) {
+				System.out.println("Forgot to select a season");
 			}
-		}
+		} 
+		
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 }

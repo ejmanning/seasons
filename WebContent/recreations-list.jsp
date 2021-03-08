@@ -6,14 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Recreations</title>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<form method="post" action="recreationNavigationServlet">
 	<table>
-		<c:forEach items="${requestScope.allRecreations}" var="currentitem">
+		<c:forEach items="${requestScope.allRecreations}" var="currentrecreation">
 		<tr>
-			<td><input type="radio" name="id" value="${currentitem.id}"></td>
-			<td>${currentitem.recname}</td>
+			<td><input type="radio" name="id" value="${currentrecreation.id}"></td>
+			<td>${currentrecreation.recname}</td>
 		</tr> 
 		</c:forEach>
 	</table>

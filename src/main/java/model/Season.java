@@ -38,6 +38,10 @@ public class Season implements Serializable {
 		this.seasonname = seasonname;
 		this.seasonstartdate = seasonstartdate;
 	}
+	
+	public Season(String seasonname) {
+		this.seasonname = seasonname;
+	}
 
 	public int getId() {
 		return this.id;
