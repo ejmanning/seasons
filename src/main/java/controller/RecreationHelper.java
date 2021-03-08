@@ -26,10 +26,10 @@ public class RecreationHelper {
 		return allRecreations;
 	}
 	
-	public void deleteItem(Recreation toDelete) {
+	public void deleteRecreation(Recreation toDelete) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Recreation> typedQuery = em.createQuery("SELECT r FROM Recreation r WHERE r.RECNAME = :selectedRecName", Recreation.class);
+		TypedQuery<Recreation> typedQuery = em.createQuery("SELECT r FROM Recreation r WHERE r.recname = :selectedRecName", Recreation.class);
 		
 		//substitute the parameter with actual data from the toDelete item
 		typedQuery.setParameter("selectedRecName", toDelete.getRecname());

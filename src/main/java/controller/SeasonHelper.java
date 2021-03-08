@@ -33,7 +33,7 @@ public class SeasonHelper {
 	}
 
 	
-	public Season searchForSeasonsById(Integer tempId) {
+	public Season searchForSeasonById(Integer tempId) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
@@ -49,6 +49,12 @@ public class SeasonHelper {
 		em.merge(toEdit);
 		em.getTransaction().commit();
 		em.close();
+	}
+
+
+	public Object showAllRecreations() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -23,9 +23,7 @@
 		</c:forEach>
 	</c:forEach>
 	</table>
-	<input type="submit" value="edit" name="doThisToList">
-	<input type="submit" value="delete" name="doThisToList">
-	<input type="submit" value="add" name="doThisToList">
+	<input type="submit" value="edit" name="doThisToSeason">
 	</form>
 	
 	<a href="addRecreationForSeasonServlet">Add recreations for seasons</a>

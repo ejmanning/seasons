@@ -38,7 +38,7 @@ public class recreationNavigationServlet extends HttpServlet {
 			try {
 				Integer tempId = Integer.parseInt(request.getParameter("id"));
 				Recreation recreationToDelete = dao.searchForRecreationById(tempId);
-				dao.deleteItem(recreationToDelete);
+				dao.deleteRecreation(recreationToDelete);
 			} catch (NumberFormatException e) {
 				System.out.println("Forgot to select a recreation");
 			}
